@@ -67,7 +67,7 @@ app.delete('/api/notes/:id', (req, res) => {
         let pastNote = JSON.parse(data);
         let filteredNotes = pastNote.filter(eachNote => eachNote.id != deletedId);
         fs.writeFile('./db/db.json', JSON.stringify(filteredNotes), (err) => {
-            console.log(`Deleted note ${deletedId} successfully`);
+            console.log(`Deleted note: ${deletedId} successfully`);
         })
 
         res.json(filteredNotes);
